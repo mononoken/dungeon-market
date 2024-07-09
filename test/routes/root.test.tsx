@@ -5,7 +5,7 @@ import routes from "../../src/routes.tsx";
 
 describe("root route", () => {
   it("renders correct heading", () => {
-    const mockRouter = createMemoryRouter(routes);
+    const mockRouter = createMemoryRouter(routes, { initialEntries: ["/"] });
 
     render(<RouterProvider router={mockRouter} />);
 
@@ -13,13 +13,24 @@ describe("root route", () => {
   });
 
   it("renders link to monsters index route", () => {
-    const mockRouter = createMemoryRouter(routes);
+    const mockRouter = createMemoryRouter(routes, { initialEntries: ["/"] });
 
     render(<RouterProvider router={mockRouter} />);
 
     expect(screen.getByRole("link", { name: /Shop/i })).toHaveAttribute(
       "href",
       "/monsters/",
+    );
+  });
+
+  it("renders link to home root route", () => {
+    const mockRouter = createMemoryRouter(routes, { initialEntries: ["/"] });
+
+    render(<RouterProvider router={mockRouter} />);
+
+    expect(screen.getByRole("link", { name: /Home/i })).toHaveAttribute(
+      "href",
+      "/",
     );
   });
 });

@@ -5,8 +5,8 @@ const routes = [
   {
     path: "/",
     element: <Root />,
+    children: [{ path: "monsters/", element: <MonsterIndex />, children: [] }],
   },
-  { path: "monsters/", element: <MonsterIndex />, children: [] },
 ];
 
 export default routes;
