@@ -3,7 +3,8 @@ import "./App.css";
 function App() {
   return (
     <>
-      <h1>Shopping Cart</h1>
+      <h1>Dungeon Market</h1>
+      <a href="/">Shop</a>
     </>
   );
 }
