@@ -15,7 +15,9 @@ describe("monster index route", () => {
   });
 
   it.skip("renders monsters", () => {
-    const mockRouter = createMemoryRouter(routes);
+    const mockRouter = createMemoryRouter(routes, {
+      initialEntries: ["/monsters/"],
+    });
 
     render(<RouterProvider router={mockRouter} />);
 
