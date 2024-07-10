@@ -4,6 +4,6 @@ export type Monster = {
   desc: string;
   size: string;
   type: string;
-  armor_class: number;
+  armorClass: number;
   cr: number;
 };

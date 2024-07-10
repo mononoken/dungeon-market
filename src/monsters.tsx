@@ -25,7 +25,7 @@ export async function getMonsters(): Promise<Monster[]> {
       desc: monster.desc,
       size: monster.size,
       type: monster.type,
-      armorClass: monster.armor_class,
+      armorClass: monster.armorClass,
       cr: monster.cr,
     };
   });
