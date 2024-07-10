@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
-import { getMonsters } from "../../monsters";
+import { getRandomMonsters } from "../../monsters";
+import { Monster } from "../../types/monster";
 
 function MonsterIndex() {
-  const [monsters, setMonsters] = useState([]);
+  const [monsters, setMonsters] = useState<Monster[]>([]);
   useEffect(() => {
     const fetchMonsters = async () => {
       try {
-        const monsters = await getMonsters();
-        const monsterNames = monsters.results.map(
-          (monster: { name: string }) => monster.name,
-        );
-        setMonsters(monsterNames);
+        const fetchedMonsters = await getRandomMonsters(8);
+        setMonsters(fetchedMonsters);
       } catch (error) {
         throw new Error("Error setting state.");
       }
@@ -22,8 +20,8 @@ function MonsterIndex() {
     <>
       <h2>Monsters</h2>
       <ul>
-        {monsters.map((monster) => {
-          return <li>{monster}</li>;
+        {monsters.map((monster: Monster) => {
+          return <li key={monster.id}>{monster.name}</li>;
         })}
       </ul>
     </>
