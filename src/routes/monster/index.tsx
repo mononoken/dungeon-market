@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getRandomMonsters } from "../../monsters";
 import { Monster } from "../../types/monster";
-import MonsterCard from "./MonsterCard";
+import MonsterCard from "./monster-card";
 
 function MonsterIndex() {
   const [monsters, setMonsters] = useState<Monster[]>([]);

@@ -1,5 +1,5 @@
 import { Monster } from "../../types/monster";
-import useCurrency from "../../hooks/useCurrency";
+import useCurrency from "../../hooks/use-currency";
 
 type MonsterCardProps = {
   monster: Monster;
