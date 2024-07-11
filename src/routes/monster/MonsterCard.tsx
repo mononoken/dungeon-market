@@ -1,15 +1,12 @@
 import { Monster } from "../../types/monster";
+import useCurrency from "../../hooks/useCurrency";
 
 type MonsterCardProps = {
   monster: Monster;
 };
 
 function MonsterCard({ monster }: MonsterCardProps) {
-  // Should this logic be moved to a class or module?
-  const goldWorth = monster.cr * 300 ? monster.cr * 300 : 0.5;
-  const gold = Math.floor(goldWorth);
-  const silverChange = (goldWorth % 1) * 100;
-  const silver = Math.floor(silverChange);
+  const { gold, silver } = useCurrency(monster.cr);
 
   return (
     <div>
