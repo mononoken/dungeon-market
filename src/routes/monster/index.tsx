@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getRandomMonsters } from "../../monsters";
 import { Monster } from "../../types/monster";
+import MonsterCard from "./MonsterCard";
 
 function MonsterIndex() {
   const [monsters, setMonsters] = useState<Monster[]>([]);
@@ -21,7 +22,11 @@ function MonsterIndex() {
       <h2>Monsters</h2>
       <ul>
         {monsters.map((monster: Monster) => {
-          return <li key={monster.id}>{monster.name}</li>;
+          return (
+            <li key={monster.id}>
+              <MonsterCard monster={monster} />
+            </li>
+          );
         })}
       </ul>
     </>
