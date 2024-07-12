@@ -1,8 +1,9 @@
 import { useContext } from "react";
+import { CartItemType } from "../../types/cart-item";
 import { CartItemsContext } from "../root";
 
 type CartItemProps = {
-  item: { name: string; quantity: number };
+  item: CartItemType;
 };
 
 function CartItem({ item }: CartItemProps) {

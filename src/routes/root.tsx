@@ -1,13 +1,12 @@
 import { useState, createContext } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { CartItemType } from "../types/cart-item";
 import Cart from "./cart/cart";
 import "./root.css";
 
 export const CartItemsContext = createContext<{
-  cartItems: { name: string; quantity: number }[];
-  setCartItems: React.Dispatch<
-    React.SetStateAction<{ name: string; quantity: number }[]>
-  >;
+  cartItems: CartItemType[];
+  setCartItems: React.Dispatch<React.SetStateAction<CartItemType[]>>;
 }>({
   cartItems: [],
   setCartItems: () => {},
