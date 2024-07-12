@@ -1,11 +1,15 @@
 import Root from "./routes/root";
 import MonsterIndex from "./routes/monster";
+import Cart from "./routes/cart/cart";
 
 const routes = [
   {
     path: "/",
     element: <Root />,
-    children: [{ path: "monsters/", element: <MonsterIndex />, children: [] }],
+    children: [
+      { path: "cart/", element: <Cart /> },
+      { path: "monsters/", element: <MonsterIndex />, children: [] },
+    ],
   },
 ];
 

@@ -1,4 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
+import Cart from "./cart/cart";
 import "./root.css";
 
 function Root() {
@@ -12,6 +13,11 @@ function Root() {
           </li>
           <li>
             <Link to="/monsters/">Shop</Link>
+          </li>
+          <li>
+            <Link to="/cart/">
+              <Cart />
+            </Link>
           </li>
         </ul>
       </nav>
