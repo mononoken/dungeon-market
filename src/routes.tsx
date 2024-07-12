@@ -1,5 +1,5 @@
 import Root from "./routes/root";
-import MonsterIndex from "./routes/monster";
+import MonsterIndex from "./routes/monster/monster-index";
 import Cart from "./routes/cart/cart";
 
 const routes = [
