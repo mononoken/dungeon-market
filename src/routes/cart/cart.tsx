@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import CartItem from "./cart-item";
+import { CartItem } from "./cart-item";
 import { CartItemsContext } from "../root";
 
-function Cart() {
+export function Cart() {
   const { cartItems } = useContext(CartItemsContext);
 
   return (
@@ -20,5 +20,3 @@ function Cart() {
     </>
   );
 }
-
-export default Cart;

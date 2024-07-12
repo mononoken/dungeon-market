@@ -7,7 +7,7 @@ function getSavedValue<T>(key: string, initialValue: T | (() => T)) {
   return initialValue instanceof Function ? initialValue() : initialValue;
 }
 
-function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
+export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
   const [value, setValue] = useState(() => {
     return getSavedValue(key, initialValue);
   });
@@ -18,5 +18,3 @@ function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
 
   return [value, setValue];
 }
-
-export default useLocalStorage;

@@ -1,11 +1,11 @@
 import { Monster } from "../../types/monster";
-import useCurrency from "../../hooks/use-currency";
+import { useCurrency } from "../../hooks/use-currency";
 
 type MonsterCardProps = {
   monster: Monster;
 };
 
-function MonsterCard({ monster }: MonsterCardProps) {
+export function MonsterCard({ monster }: MonsterCardProps) {
   const { gold, silver } = useCurrency(monster.cr);
 
   return (
@@ -25,5 +25,3 @@ function MonsterCard({ monster }: MonsterCardProps) {
     </div>
   );
 }
-
-export default MonsterCard;

@@ -1,8 +1,8 @@
-import Root from "./routes/root";
-import MonsterIndex from "./routes/monster/monster-index";
-import Cart from "./routes/cart/cart";
+import { Root } from "./routes/root";
+import { MonsterIndex } from "./routes/monster/monster-index";
+import { Cart } from "./routes/cart/cart";
 
-const routes = [
+export const routes = [
   {
     path: "/",
     element: <Root />,
@@ -12,5 +12,3 @@ const routes = [
     ],
   },
 ];
-
-export default routes;

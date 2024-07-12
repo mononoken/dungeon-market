@@ -5,7 +5,7 @@ type Currency = {
   silver: number;
 };
 
-function useCurrency(cr: number) {
+export function useCurrency(cr: number) {
   const [currency, setCurrency] = useState<Currency>({ gold: 0, silver: 0 });
 
   useEffect(() => {
@@ -23,5 +23,3 @@ function useCurrency(cr: number) {
 
   return currency;
 }
-
-export default useCurrency;

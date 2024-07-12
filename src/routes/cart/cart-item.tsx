@@ -6,7 +6,7 @@ type CartItemProps = {
   item: CartItemType;
 };
 
-function CartItem({ item }: CartItemProps) {
+export function CartItem({ item }: CartItemProps) {
   const { setCartItems } = useContext(CartItemsContext);
 
   const handleDecrementQuantity = () => {
@@ -47,5 +47,3 @@ function CartItem({ item }: CartItemProps) {
     </div>
   );
 }
-
-export default CartItem;

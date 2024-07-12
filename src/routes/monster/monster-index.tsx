@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { getRandomMonsters } from "../../monsters";
 import { Monster } from "../../types/monster";
-import MonsterCard from "./monster-card";
+import { MonsterCard } from "./monster-card";
 import { CartItemsContext } from "../root";
 
-function MonsterIndex() {
+export function MonsterIndex() {
   const [monsters, setMonsters] = useState<Monster[]>([]);
   const { setCartItems } = useContext(CartItemsContext);
 
@@ -55,5 +55,3 @@ function MonsterIndex() {
     </>
   );
 }
-
-export default MonsterIndex;

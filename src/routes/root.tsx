@@ -1,8 +1,8 @@
 import { createContext } from "react";
-import useLocalStorage from "../hooks/use-local-storage";
+import { useLocalStorage } from "../hooks/use-local-storage";
 import { Link, Outlet } from "react-router-dom";
 import { CartItemType } from "../types/cart-item";
-import Cart from "./cart/cart";
+import { Cart } from "./cart/cart";
 import "./root.css";
 
 export const CartItemsContext = createContext<{
@@ -13,7 +13,7 @@ export const CartItemsContext = createContext<{
   setCartItems: () => {},
 });
 
-function Root() {
+export function Root() {
   const [cartItems, setCartItems] = useLocalStorage("userCartItems", []);
 
   return (
@@ -38,5 +38,3 @@ function Root() {
     </CartItemsContext.Provider>
   );
 }
-
-export default Root;
