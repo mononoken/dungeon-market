@@ -25,6 +25,7 @@ function MonsterIndex() {
           return (
             <li key={monster.id}>
               <MonsterCard monster={monster} />
+              <button onClick={() => {}}>Add to cart</button>
             </li>
           );
         })}
