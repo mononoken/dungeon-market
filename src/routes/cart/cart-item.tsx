@@ -29,6 +29,12 @@ function CartItem({ item }: CartItemProps) {
     );
   };
 
+  const handleRemoveItem = () => {
+    setCartItems((prevItems) =>
+      prevItems.filter((cartItem) => cartItem.name !== item.name),
+    );
+  };
+
   return (
     <div>
       <div>{item.name}</div>
@@ -36,7 +42,7 @@ function CartItem({ item }: CartItemProps) {
       <div>
         <button onClick={handleDecrementQuantity}>-</button>
         <button onClick={handleIncrementQuantity}>+</button>
-        {/* <button onClick={}>Delete</button> */}
+        <button onClick={handleRemoveItem}>Remove</button>
       </div>
     </div>
   );
