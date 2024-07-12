@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 type CartItemProps = {
-  item: { name: string };
+  item: { name: string; quantity: number };
 };
 
 function CartItem({ item }: CartItemProps) {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(item.quantity);
 
   const handleDecrementQuantity = () => {
     setQuantity(() => quantity - 1);
