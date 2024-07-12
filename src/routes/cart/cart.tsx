@@ -1,20 +1,18 @@
-import { useState } from "react";
+import { useContext } from "react";
 import CartItem from "./cart-item";
+import { CartItemsContext } from "../root";
 
 function Cart() {
-  const [cartItems, setCartItems] = useState([
-    { name: "foo", quantity: 0 },
-    { name: "bar", quantity: 2 },
-  ]);
+  const { cartItems } = useContext(CartItemsContext);
 
   return (
     <>
       <div>Cart</div>
       <ul>
-        {cartItems.map((cartItem) => {
+        {cartItems.map((item) => {
           return (
-            <li key={cartItem.name}>
-              <CartItem item={cartItem} />
+            <li key={item.name}>
+              <CartItem item={item} />
             </li>
           );
         })}

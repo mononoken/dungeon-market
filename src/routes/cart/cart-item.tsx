@@ -1,24 +1,37 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { CartItemsContext } from "../root";
 
 type CartItemProps = {
   item: { name: string; quantity: number };
 };
 
 function CartItem({ item }: CartItemProps) {
-  const [quantity, setQuantity] = useState(item.quantity);
+  const { setCartItems } = useContext(CartItemsContext);
 
   const handleDecrementQuantity = () => {
-    setQuantity(() => quantity - 1);
+    setCartItems((prevItems) =>
+      prevItems.map((cartItem) =>
+        cartItem.name === item.name
+          ? { ...cartItem, quantity: Math.max(0, cartItem.quantity - 1) }
+          : cartItem,
+      ),
+    );
   };
 
   const handleIncrementQuantity = () => {
-    setQuantity(() => quantity + 1);
+    setCartItems((prevItems) =>
+      prevItems.map((cartItem) =>
+        cartItem.name === item.name
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : cartItem,
+      ),
+    );
   };
 
   return (
     <div>
       <div>{item.name}</div>
-      <div>Quantity {quantity}</div>
+      <div>Quantity {item.quantity}</div>
       <div>
         <button onClick={handleDecrementQuantity}>-</button>
         <button onClick={handleIncrementQuantity}>+</button>
