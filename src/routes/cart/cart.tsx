@@ -1,9 +1,15 @@
 import { useContext } from "react";
 import { CartItem } from "./cart-item";
 import { CartItemsContext } from "../root";
+import { CartItemType } from "../../types/cart-item";
 
 export function Cart() {
   const { cartItems } = useContext(CartItemsContext);
+
+  const monsterCount: number = cartItems.reduce(
+    (total: number, item: CartItemType) => (total += item.quantity),
+    0,
+  );
 
   return (
     <>
@@ -17,6 +23,7 @@ export function Cart() {
           );
         })}
       </ul>
+      <div>Total Monsters: {monsterCount}</div>
     </>
   );
 }
