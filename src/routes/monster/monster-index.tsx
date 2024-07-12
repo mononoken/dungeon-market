@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getRandomMonsters } from "../../monsters";
 import { Monster } from "../../types/monster";
 import MonsterCard from "./monster-card";
+import { CartItemsContext } from "../root";
 
 function MonsterIndex() {
   const [monsters, setMonsters] = useState<Monster[]>([]);
+  const { setCartItems } = useContext(CartItemsContext);
+
   useEffect(() => {
     const fetchMonsters = async () => {
       try {
@@ -17,6 +20,21 @@ function MonsterIndex() {
     fetchMonsters();
   }, []);
 
+  const addToCart = (monster: Monster) => {
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find((item) => item.name === monster.name);
+      if (existingItem) {
+        return prevItems.map((item) =>
+          item.name === monster.name
+            ? { ...item, quantity: item.quantity + 1 }
+            : item,
+        );
+      } else {
+        return [...prevItems, { name: monster.name, quantity: 1 }];
+      }
+    });
+  };
+
   return (
     <>
       <h2>Monsters</h2>
@@ -25,7 +43,7 @@ function MonsterIndex() {
           return (
             <li key={monster.id}>
               <MonsterCard monster={monster} />
-              <button onClick={() => {}}>Add to cart</button>
+              <button onClick={() => addToCart(monster)}>Add to cart</button>
             </li>
           );
         })}

@@ -15,7 +15,7 @@ export const CartItemsContext = createContext<{
 function Root() {
   const [cartItems, setCartItems] = useState([
     { name: "baa", quantity: 0 },
-    { name: "ram", quantity: 2 },
+    { name: "ram", quantity: 3 },
     { name: "ewe", quantity: 0 },
   ]);
 
