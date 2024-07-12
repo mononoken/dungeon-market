@@ -1,4 +1,5 @@
-import { useState, createContext } from "react";
+import { createContext } from "react";
+import useLocalStorage from "../hooks/use-local-storage";
 import { Link, Outlet } from "react-router-dom";
 import { CartItemType } from "../types/cart-item";
 import Cart from "./cart/cart";
@@ -13,11 +14,7 @@ export const CartItemsContext = createContext<{
 });
 
 function Root() {
-  const [cartItems, setCartItems] = useState([
-    { name: "baa", quantity: 0 },
-    { name: "ram", quantity: 3 },
-    { name: "ewe", quantity: 0 },
-  ]);
+  const [cartItems, setCartItems] = useLocalStorage("userCartItems", []);
 
   return (
     <CartItemsContext.Provider value={{ cartItems, setCartItems }}>
