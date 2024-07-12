@@ -22,16 +22,20 @@ function MonsterIndex() {
 
   const addToCart = (monster: Monster) => {
     setCartItems((prevItems) => {
-      const existingItem = prevItems.find((item) => item.name === monster.name);
-      if (existingItem) {
-        return prevItems.map((item) =>
-          item.name === monster.name
-            ? { ...item, quantity: item.quantity + 1 }
-            : item,
-        );
-      } else {
-        return [...prevItems, { name: monster.name, quantity: 1 }];
+      let found = false;
+      const updatedItems = prevItems.map((item) => {
+        if (item.name === monster.name) {
+          found = true;
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+
+      if (!found) {
+        updatedItems.push({ name: monster.name, quantity: 1 });
       }
+
+      return updatedItems;
     });
   };
 
