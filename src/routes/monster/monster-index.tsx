@@ -1,11 +1,12 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
+import { useLocalStorage } from "../../hooks/use-local-storage";
 import { getRandomMonsters } from "../../monsters";
 import { Monster } from "../../types/monster";
 import { MonsterCard } from "./monster-card";
 import { CartItemsContext } from "../root";
 
 export function MonsterIndex() {
-  const [monsters, setMonsters] = useState<Monster[]>([]);
+  const [monsters, setMonsters] = useLocalStorage("marketMonsters", []);
   const { setCartItems } = useContext(CartItemsContext);
 
   useEffect(() => {
@@ -17,8 +18,9 @@ export function MonsterIndex() {
         throw new Error("Error setting state.");
       }
     };
-    fetchMonsters();
-  }, []);
+
+    if (monsters.length === 0) fetchMonsters();
+  }, [monsters.length, setMonsters]);
 
   const addToCart = (monster: Monster) => {
     setCartItems((prevItems) => {
