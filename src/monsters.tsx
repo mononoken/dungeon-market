@@ -1,12 +1,10 @@
 import { Monster } from "./types/monster";
 
-const monstersLSKey: string = "monsterStorage";
-
-export async function getMonsters(): Promise<Monster[]> {
-  const storedMonsters = localStorage.getItem(monstersLSKey);
-  if (storedMonsters) {
-    return JSON.parse(storedMonsters);
-  }
+export async function getMonsters(
+  key: string = "monsterStorage",
+): Promise<Monster[]> {
+  const storedMonsters = JSON.parse(localStorage.getItem(key) ?? "null");
+  if (storedMonsters) return storedMonsters;
 
   const response = await fetch(
     "https://api.open5e.com/monsters/?document__slug=wotc-srd&limit=400",
@@ -30,7 +28,7 @@ export async function getMonsters(): Promise<Monster[]> {
     };
   });
 
-  localStorage.setItem(monstersLSKey, JSON.stringify(parsedMonsters));
+  localStorage.setItem(key, JSON.stringify(parsedMonsters));
 
   return parsedMonsters;
 }
