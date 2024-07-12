@@ -11,7 +11,7 @@ export function MonsterIndex() {
   useEffect(() => {
     const fetchMonsters = async () => {
       try {
-        const fetchedMonsters = await getRandomMonsters(8);
+        const fetchedMonsters = await getRandomMonsters(50);
         setMonsters(fetchedMonsters);
       } catch (error) {
         throw new Error("Error setting state.");

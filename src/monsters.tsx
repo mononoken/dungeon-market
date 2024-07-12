@@ -1,8 +1,6 @@
 import { Monster } from "./types/monster";
 
-export async function getMonsters(
-  key: string = "monsterStorage",
-): Promise<Monster[]> {
+async function getMonsters(key: string = "monsterStorage"): Promise<Monster[]> {
   const storedMonsters = JSON.parse(localStorage.getItem(key) ?? "null");
   if (storedMonsters) return storedMonsters;
 
@@ -33,9 +31,7 @@ export async function getMonsters(
   return parsedMonsters;
 }
 
-export async function getRandomMonsters(
-  quantity: number = 8,
-): Promise<Monster[]> {
+export async function getRandomMonsters(quantity: number): Promise<Monster[]> {
   return getRandomEntries(await getMonsters(), quantity);
 }
 
