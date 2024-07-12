@@ -28,9 +28,7 @@ export function Root() {
             <Link to="/monsters/">Shop</Link>
           </li>
           <li>
-            <Link to="/cart/">
-              <Cart />
-            </Link>
+            <Cart />
           </li>
         </ul>
       </nav>
