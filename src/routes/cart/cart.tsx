@@ -33,6 +33,7 @@ export function Cart() {
       </ul>
       <div>Total Monsters: {monsterCount}</div>
       <div>Total Cost: {`${gold}g ${silver}s`}</div>
+      <button disabled>Checkout</button>
     </>
   );
 }
