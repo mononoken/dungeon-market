@@ -34,7 +34,7 @@ export function MonsterIndex() {
       });
 
       if (!found) {
-        updatedItems.push({ name: monster.name, quantity: 1 });
+        updatedItems.push({ name: monster.name, cr: monster.cr, quantity: 1 });
       }
 
       return updatedItems;

@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useCurrency } from "../../hooks/use-currency";
 import { CartItemType } from "../../types/cart-item";
 import { CartItemsContext } from "../root";
 
@@ -8,6 +9,7 @@ type CartItemProps = {
 
 export function CartItem({ item }: CartItemProps) {
   const { setCartItems } = useContext(CartItemsContext);
+  const { gold, silver } = useCurrency(item.quantity * item.cr);
 
   const handleDecrementQuantity = () => {
     setCartItems((prevItems) =>
@@ -39,6 +41,7 @@ export function CartItem({ item }: CartItemProps) {
     <div>
       <div>{item.name}</div>
       <div>Quantity {item.quantity}</div>
+      <div>Cost {`${gold}g ${silver}s`}</div>
       <div>
         <button onClick={handleDecrementQuantity}>-</button>
         <button onClick={handleIncrementQuantity}>+</button>
