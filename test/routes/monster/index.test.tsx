@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
-import routes from "../../../src/routes";
+import { routes } from "../../../src/routes";
 
 describe("monster index route", () => {
   it("renders correct heading", () => {
