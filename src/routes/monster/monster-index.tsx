@@ -4,6 +4,7 @@ import { getRandomMonsters } from "../../monsters";
 import { Monster } from "../../types/monster";
 import { MonsterCard } from "./monster-card";
 import { CartItemsContext } from "../root";
+import styles from "./monster-index.module.css";
 
 export function MonsterIndex() {
   const [monsters, setMonsters] = useLocalStorage("marketMonsters", []);
@@ -42,18 +43,20 @@ export function MonsterIndex() {
   };
 
   return (
-    <>
-      <h2>Monsters</h2>
-      <ul>
+    <div className="container">
+      <h1>Monsters</h1>
+      <ul className={styles.container}>
         {monsters.map((monster: Monster) => {
           return (
             <li key={monster.id}>
-              <MonsterCard monster={monster} />
-              <button onClick={() => addToCart(monster)}>Add to cart</button>
+              <MonsterCard
+                monster={monster}
+                onAddToCart={() => addToCart(monster)}
+              />
             </li>
           );
         })}
       </ul>
-    </>
+    </div>
   );
 }

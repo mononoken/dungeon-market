@@ -1,11 +1,21 @@
 :root {
+  --body-background: #004643;
+  --primary-color: rgba(232, 228, 230, 0.9);
+  --secondary-color: #abd1c6;
+  --headline-color: #fffffe;
+  --interact-color: #f9bc60;
+  --active-color: #fffffe;
+  --button-text: #001e1d;
+  --bang-color: #e16162;
+  --card-background: #0e534e;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   /* color-scheme: light dark; */
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--primary-color);
+  background-color: var(--body-background);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,11 +31,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--interact-color);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--active-color);
 }
 
 body {
@@ -42,6 +52,7 @@ h4 {
   font-size: 3.2em;
   line-height: 1.1;
   text-align: center;
+  color: var(--headline-color);
 }
 
 button {
@@ -51,12 +62,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--interact-color);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--active-color);
 }
 button:focus,
 button:focus-visible {
@@ -89,6 +100,15 @@ nav li {
   display: flex;
   flex-direction: column;
   padding: 10px 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background-color: var(--card-background);
+  border-radius: 8px;
 }
 
 .container {

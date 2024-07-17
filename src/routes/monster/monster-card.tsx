@@ -3,13 +3,14 @@ import { useCurrency } from "../../hooks/use-currency";
 
 type MonsterCardProps = {
   monster: Monster;
+  onAddToCart: () => void;
 };
 
-export function MonsterCard({ monster }: MonsterCardProps) {
+export function MonsterCard({ monster, onAddToCart }: MonsterCardProps) {
   const { gold, silver } = useCurrency(monster.cr);
 
   return (
-    <div>
+    <div className={"card"}>
       <h1>{monster.name}</h1>
       <div>
         <span>Cost: </span>
@@ -22,6 +23,7 @@ export function MonsterCard({ monster }: MonsterCardProps) {
         <li>Armor Class: {monster.armorClass}</li>
       </ul>
       <p>{monster.desc ? monster.desc : "No description available."}</p>
+      <button onClick={onAddToCart}>Add to cart</button>
     </div>
   );
 }
