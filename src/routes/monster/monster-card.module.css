@@ -12,3 +12,9 @@
   font-weight: 700;
   color: var(--headline-color);
 }
+
+.card form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
