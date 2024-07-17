@@ -1,0 +1,15 @@
+.card {
+  composes: card from global;
+  color: var(--secondary-color);
+}
+
+.card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card ul li span:first-child {
+  font-weight: 700;
+  color: var(--headline-color);
+}
