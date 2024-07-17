@@ -1,5 +1,15 @@
 import { Monster } from "./types/monster";
 
+type ImportedMonster = {
+  id: number;
+  name: string;
+  desc: string;
+  size: string;
+  type: string;
+  armor_class: number;
+  cr: number;
+};
+
 async function getMonsters(key: string = "monsterStorage"): Promise<Monster[]> {
   const storedMonsters = JSON.parse(localStorage.getItem(key) ?? "null");
   if (storedMonsters) return storedMonsters;
@@ -14,17 +24,19 @@ async function getMonsters(key: string = "monsterStorage"): Promise<Monster[]> {
 
   const data = await response.json();
 
-  const parsedMonsters = data.results.map((monster: Monster, index: number) => {
-    return {
-      id: index + 1,
-      name: monster.name,
-      desc: monster.desc,
-      size: monster.size,
-      type: monster.type,
-      armorClass: monster.armorClass,
-      cr: monster.cr,
-    };
-  });
+  const parsedMonsters = data.results.map(
+    (monster: ImportedMonster, index: number) => {
+      return {
+        id: index + 1,
+        name: monster.name,
+        desc: monster.desc,
+        size: monster.size,
+        type: monster.type,
+        armorClass: monster.armor_class,
+        cr: monster.cr,
+      };
+    },
+  );
 
   localStorage.setItem(key, JSON.stringify(parsedMonsters));
 
