@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 
-export function Nav() {
+type NavProps = {
+  monsterCount: number;
+};
+
+export function Nav({ monsterCount }: NavProps) {
   return (
     <nav>
       <ul>
@@ -11,7 +15,7 @@ export function Nav() {
           <Link to="/monsters/">Shop</Link>
         </li>
         <li>
-          <Link to="/cart/">Cart</Link>
+          <Link to="/cart/">Cart {monsterCount > 0 && `${monsterCount}`}</Link>
         </li>
       </ul>
     </nav>

@@ -16,11 +16,16 @@ export const CartItemsContext = createContext<{
 export function Root() {
   const [cartItems, setCartItems] = useLocalStorage("userCartItems", []);
 
+  const monsterCount: number = cartItems.reduce(
+    (total: number, item: CartItemType) => (total += item.quantity),
+    0,
+  );
+
   return (
     <CartItemsContext.Provider value={{ cartItems, setCartItems }}>
       <header>
         <h1>Dungeon Market</h1>
-        <Nav />
+        <Nav monsterCount={monsterCount} />
       </header>
       <Outlet />
     </CartItemsContext.Provider>
