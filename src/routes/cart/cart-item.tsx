@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useCurrency } from "../../hooks/use-currency";
 import { CartItemType } from "../../types/cart-item";
 import { CartItemsContext } from "../root";
+import styles from "./cart-item.module.css";
 
 type CartItemProps = {
   item: CartItemType;
@@ -38,11 +39,19 @@ export function CartItem({ item }: CartItemProps) {
   };
 
   return (
-    <div>
-      <div>{item.name}</div>
-      <div>Quantity {item.quantity}</div>
-      <div>Cost {`${gold}g ${silver}s`}</div>
-      <div>
+    <div className={styles.card}>
+      <ul>
+        <li>
+          <h2>{item.name}</h2>
+        </li>
+        <li>
+          <span>Quantity</span> {item.quantity}
+        </li>
+        <li>
+          <span>Cost</span> {`${gold}g ${silver}s`}
+        </li>
+      </ul>
+      <div className="buttons">
         <button onClick={handleDecrementQuantity}>-</button>
         <button onClick={handleIncrementQuantity}>+</button>
         <button onClick={handleRemoveItem}>Remove</button>

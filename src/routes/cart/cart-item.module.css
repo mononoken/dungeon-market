@@ -12,3 +12,8 @@
   font-weight: 700;
   color: var(--headline-color);
 }
+
+.card h2 {
+  font-size: 2.4em;
+  text-align: left;
+}

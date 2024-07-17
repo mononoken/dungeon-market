@@ -3,6 +3,7 @@ import { useCurrency } from "../../hooks/use-currency";
 import { CartItem } from "./cart-item";
 import { CartItemsContext } from "../root";
 import { CartItemType } from "../../types/cart-item";
+import styles from "./cart.module.css";
 
 export function Cart() {
   const { cartItems } = useContext(CartItemsContext);
@@ -20,9 +21,9 @@ export function Cart() {
   );
 
   return (
-    <>
-      <div>Cart</div>
-      <ul>
+    <div className={styles.container}>
+      <h1>Cart</h1>
+      <ul className="container">
         {cartItems.map((item) => {
           return (
             <li key={item.name}>
@@ -34,6 +35,6 @@ export function Cart() {
       <div>Total Monsters: {monsterCount}</div>
       <div>Total Cost: {`${gold}g ${silver}s`}</div>
       <button disabled>Checkout</button>
-    </>
+    </div>
   );
 }

@@ -1,0 +1,8 @@
+.container {
+  composes: container from global;
+}
+
+.container ul li {
+  width: 100%;
+  max-width: 720px;
+}
