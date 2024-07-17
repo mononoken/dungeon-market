@@ -28,6 +28,7 @@ export function Root() {
         <Nav monsterCount={monsterCount} />
       </header>
       <Outlet />
+      <footer>Github</footer>
     </CartItemsContext.Provider>
   );
 }
