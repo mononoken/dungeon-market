@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { useLocalStorage } from "../../hooks/use-local-storage";
 import { getRandomMonsters } from "../../monsters";
 import { Monster } from "../../types/monster";
