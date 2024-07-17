@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./font.css";
 import "./reset.css";
 import "./index.css";
 import { routes } from "./routes";
