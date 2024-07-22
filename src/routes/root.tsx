@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { useLocalStorage } from "../hooks/use-local-storage";
 import { Outlet } from "react-router-dom";
 import { CartItemType } from "../types/cart-item";
@@ -15,17 +15,22 @@ export const CartItemsContext = createContext<{
 
 export function Root() {
   const [cartItems, setCartItems] = useLocalStorage("userCartItems", []);
+  const [isCartVisible, setIsCartVisible] = useState(false);
 
   const monsterCount: number = cartItems.reduce(
     (total: number, item: CartItemType) => (total += item.quantity),
     0,
   );
 
+  const toggleCartVisibility = () => {
+    setIsCartVisible((previous: boolean) => !previous);
+  };
+
   return (
     <CartItemsContext.Provider value={{ cartItems, setCartItems }}>
       <header>
         <h1>Dungeon Market</h1>
-        <Nav monsterCount={monsterCount} />
+        <Nav monsterCount={monsterCount} onToggleCart={toggleCartVisibility} />
       </header>
       <main>
         <Outlet />
