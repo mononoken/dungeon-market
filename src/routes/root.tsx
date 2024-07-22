@@ -27,7 +27,9 @@ export function Root() {
         <h1>Dungeon Market</h1>
         <Nav monsterCount={monsterCount} />
       </header>
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <footer>
         <ul>
           <li>
