@@ -19,7 +19,6 @@ export function Nav({ monsterCount, onToggleCart }: NavProps) {
           <button onClick={onToggleCart}>
             Cart {monsterCount > 0 && `${monsterCount}`}
           </button>
-          <Link to="/cart/">Cart {monsterCount > 0 && `${monsterCount}`}</Link>
         </li>
       </ul>
     </nav>

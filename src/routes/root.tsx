@@ -3,6 +3,7 @@ import { useLocalStorage } from "../hooks/use-local-storage";
 import { Outlet } from "react-router-dom";
 import { CartItemType } from "../types/cart-item";
 import { Nav } from "./nav";
+import { Cart } from "./cart/cart";
 import "./root.css";
 
 export const CartItemsContext = createContext<{
@@ -33,6 +34,7 @@ export function Root() {
         <Nav monsterCount={monsterCount} onToggleCart={toggleCartVisibility} />
       </header>
       <main>
+        {isCartVisible && <Cart />}
         <Outlet />
       </main>
       <footer>

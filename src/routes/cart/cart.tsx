@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { useCurrency } from "../../hooks/use-currency";
+import { Link } from "react-router-dom";
 import { CartItem } from "./cart-item";
 import { CartItemsContext } from "../root";
 import { CartItemType } from "../../types/cart-item";
@@ -34,6 +35,7 @@ export function Cart() {
       </ul>
       <div>Total Monsters: {monsterCount}</div>
       <div>Total Cost: {`${gold}g ${silver}s`}</div>
+      <Link to="/cart/">Cart</Link>
       <button disabled>Checkout</button>
     </div>
   );
