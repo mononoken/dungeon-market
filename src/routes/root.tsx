@@ -41,7 +41,7 @@ export function Root() {
         <footer>
           <ul>
             <li>
-              <a href="https://github.com/mononoken">
+              <a href="https://github.com/mononoken/dungeon-market">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="1.2em"
