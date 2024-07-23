@@ -17,8 +17,7 @@ export function CartMenu({
         onClick={onToggleCart}
       ></div>
       <aside className={`${styles.sidebar} ${isVisible ? styles.visible : ""}`}>
-        <button onClick={onToggleCart}>x</button>
-        <Cart />
+        <Cart onClose={onToggleCart} />
       </aside>
     </div>
   );

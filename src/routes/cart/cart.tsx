@@ -6,7 +6,13 @@ import { CartItemsContext } from "../root";
 import { CartItemType } from "../../types/cart-item";
 import styles from "./cart.module.css";
 
-export function Cart() {
+type CartProps = {
+  onClose?: React.MouseEventHandler<
+    HTMLButtonElement | HTMLAnchorElement
+  > | null;
+};
+
+export function Cart({ onClose }: CartProps) {
   const { cartItems } = useContext(CartItemsContext);
 
   const crTotal: number = cartItems.reduce(
@@ -23,7 +29,10 @@ export function Cart() {
 
   return (
     <div className={styles.container}>
-      <h1>Cart</h1>
+      <header>
+        <h1 style={onClose ? {} : { margin: "0 auto" }}>Cart</h1>
+        {onClose && <button onClick={onClose}>x</button>}
+      </header>
       <ul className="container">
         {cartItems.map((item) => {
           return (
@@ -35,7 +44,12 @@ export function Cart() {
       </ul>
       <div>Total Monsters: {monsterCount}</div>
       <div>Total Cost: {`${gold}g ${silver}s`}</div>
-      <Link to="/cart/">Cart</Link>
+      <Link
+        to="/cart/"
+        onClick={onClose as React.MouseEventHandler<HTMLAnchorElement>} // FIX_ME This works but typing is wonky
+      >
+        Cart
+      </Link>
       <button disabled>Checkout</button>
     </div>
   );
