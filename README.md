@@ -1,30 +1,36 @@
-# React + TypeScript + Vite
+# # Dungeon Market
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![A screenshot showing a preview of the cart system.](./public/cart-screenshot.png "Project Preview")
 
-Currently, two official plugins are available:
+Dungeon Market is beginning as a shopping cart application. You can add monsters to your cart dynamically with costs shown based on the CR of the monsters.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+However, the next step is to delve further. I envision it as a tool to help DMs prepare scenarios for their campaigns. DMs can build "carts" of monsters to prepare encounters. Quickly view the CR of the monsters and the encounter.
 
-## Expanding the ESLint configuration
+[Click here to see a live-preview hosted on Vercel).](https://dungeon-market.vercel.app/monsters/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Table of Contents
 
-- Configure the top-level `parserOptions` property like this:
+- [General Information](#general-information)
+- [Acknowledgements](#acknowledgements)
+- [Reporting Issues / Feedback / Contact](#reporting-issuesfeedbackcontact)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-};
-```
+## General Information
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+This project uses:
+
+- TypeScript
+- React
+- React Router
+- React Testing Library
+- Vite
+- Vitest
+- [Open5e API](https://open5e.com/)
+
+## Acknowledgements
+
+- [The Odin Project](https://www.theodinproject.com) and the Discord community!
+- [Open5e](https://open5e.com/)
+
+## Reporting Issues/Feedback/Contact
+
+Bug reports are greatly appreciated. You may create a new issue with a description of the problem, and the steps leading up to it. PRs are welcome as well.
