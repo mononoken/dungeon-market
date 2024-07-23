@@ -13,7 +13,8 @@
   pointer-events: auto;
   z-index: 50;
   right: 0;
-  width: 80%;
+  min-width: 288px;
+  width: 30%;
   height: 100vh;
   overflow: auto;
   padding: 10px;
